@@ -9,4 +9,4 @@ Simple FSO propagation library. Can be used to estimate link budget losses due t
 **OUTPUT**
 
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/71328fd6-879a-43f7-8ad5-fec775ab6a4f)
-![Uploading image.png…]()
+![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bf415d49-0fd7-4813-9054-15187ec97dfb)
