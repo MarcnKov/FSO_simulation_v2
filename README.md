@@ -6,6 +6,9 @@ Simple FSO propagation library. Can be used to estimate link budget losses due t
 1. Git clone the library
 2. python -m pip install -r requirements.txt 
 
+**MODIFY**
+
+Parameters in the sim_config.json
 
 **OUTPUT**
 
