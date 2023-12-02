@@ -8,7 +8,7 @@ Simple FSO propagation library. Can be used to estimate link budget losses due t
 
 **MODIFY**
 
-Parameters in the sim_config.json
+Parameters in the sim_config.json as needed
 
 **OUTPUT**
 
