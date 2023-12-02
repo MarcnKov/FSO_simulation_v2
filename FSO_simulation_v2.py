@@ -53,15 +53,16 @@ params['wind_directions'] = wind_directions.tolist()
 wind_speeds = np.random.rand(n_phase_screens)*10
 params['wind_speeds'] = wind_speeds.tolist()
 
-# r0 = np.random.rand(n_phase_screens)*0.5 + 0.005
-r0 = np.random.rand()*0.1 + 0.005
+r0 = params['r0'] if len(params['r0']) != 0 else np.random.rand()*0.1
 r0 = np.full((n_phase_screens,), r0)
 params['r0'] = r0.tolist() 
-  
-l0 = np.full((n_phase_screens,), 1e-2)  
+
+l0 = params['l0'] if len(params['l0']) != 0 else 1e-2
+l0 = np.full((n_phase_screens,), l0)  
 params["l0"] = l0.tolist()
 
-L0 = np.full((n_phase_screens,),50)
+L0 = params['L0'] if len(params['L0']) != 0 else 50
+L0 = np.full((n_phase_screens,),L0)
 params["L0"] = L0.tolist()
 
 screen_alt = np.linspace(min_turb_alt, min(max_turb_alt,rx_alt-min_turb_alt), n_phase_screens)
