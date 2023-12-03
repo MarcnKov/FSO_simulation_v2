@@ -3,7 +3,7 @@ Simple FSO propagation library. Can be used to estimate link budget losses due t
 
 **USAGE**
 
-1. Git clone the library
+1. Git clone or download the library
 2. python -m pip install -r requirements.txt 
 
 **MODIFY**
