@@ -67,12 +67,6 @@ def circle(radius, size, circle_centre=(0, 0), origin="middle"):
     # size = 5: coords = [ 0.5  1.5  2.5  3.5  4.5]
     # size = 6: coords = [ 0.5  1.5  2.5  3.5  4.5  5.5]
 
-    # (3.b) Just an internal sanity check:
-    if len(coords) != size:
-        raise exceptions.Bug("len(coords) = {0}, ".format(len(coords)) +
-                             "size = {0}. They must be equal.".format(size) +
-                             "\n           Debug the line \"coords = ...\".")
-
     # (3.c) Generate the 2-D coordinates of the pixel's centres:
     x, y = numpy.meshgrid(coords, coords)
 
