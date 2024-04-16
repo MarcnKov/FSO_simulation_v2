@@ -1,12 +1,12 @@
 # FSO_simulation_v2
 Simple FSO propagation library. Propagates a gaussian beam through the turbulent atmoshpere. Can be used to estimate link budget losses due to the atmospheric turbulence for a gaussian beam. 
 
-**USAGE**
+**Usage**
 
 1. Git clone or download the library
 2. python -m pip install -r requirements.txt 
 
-**MODIFY**
+**Modify**
 
 Parameters in the sim_config.json as needed. List of parameters accepted by *sim_config.json*.
 
@@ -27,8 +27,8 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 | l0              | Inner turbulence scale  |  meters          | Array, should be of size n_phase_screens. Typical value is 0.01 for all turbulent layers|
 | L0              | Outter turbulence scale  | meters       | Array, should be of size n_phase_screens. Typical value is 50 for all turbulent layers            |
 
-## **EXAMPLE APPLICATIONS**
-### **How to Estimate Turbulence Losses?**
+## Example Applications
+### How to Estimate Losses caussed by Turbulence ?
 
 **1.Simulate Propagation with Turbulence**
 ```json
@@ -93,7 +93,7 @@ Total Losses =  48.2619469559 dB
 ```
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/656ba242-76c5-4f4c-a297-9c0276180f7f)
 
-**OUTPUT**
+**Output**
 
 ```
 Total power = 0.0998677520 W
