@@ -29,7 +29,8 @@ List of parameters accepted by *sim_config.json*
 | l0              | Inner scale  |  meters          | Array, should be of size n_phase_screens. Typical value is 0.01 for all turbulent layers|
 | L0              | Outter scale  | meters       | Array, should be of size n_phase_screens. Typical value is 50 for all turbulent layers            |
 
-**Example**
+**EXAMPLE APPLICATION**
+
 
 
 **OUTPUT**
