@@ -8,6 +8,7 @@ from math import ceil
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def gaussian_beam_ext(r_sq, z, w0, wvl, flag = False):   
     
     """
@@ -68,13 +69,59 @@ def calc_RX_params(intensity, n_sim_pxls, rx_diameter, dx):
         float : RX power at aperture
     """
 
-    n_rx_pxls = rx_diameter/dx 
+    n_rx_pxls = rx_diameter/dx
     aperture = pupil.circle(ceil(n_rx_pxls/2), n_sim_pxls).astype(bool)
     rx_intensity = np.where(aperture,intensity, 0)
     rx_power = dx**2*np.sum(rx_intensity)  
     
     return rx_intensity, rx_power 
 
+def calc_propagation_loss(P0, z, wvl, w0):
+
+    n   = 1
+    z_r = np.pi*w0**2*n/wvl
+    propagation_loses = np.exp(-2 * (z / z_r)**2)
+    return propagation_loses
+
+    # return P0*(1-propagation_loses)
+
+# def calc_RX_params(intensity, n_sim_pxls, rx_diameter, dx):
+    
+#     """
+#     Calculates RX Intensity at the aperture 
+
+#     Returns:
+#         np.ndarray : RX Intensity at aperture
+#         float : RX power at aperture
+#     """
+
+#     # Number of pixels in receiver aperture
+#     n_rx_pxls = rx_diameter / dx
+
+#     # Create an 2D array of type boolean
+#     aperture = np.zeros((n_sim_pxls, n_sim_pxls), dtype=bool)
+    
+#     # Calculate the radius in terms of number of pixels
+#     radius_pixels = ceil(n_rx_pxls / 2)
+    
+#     # Ensure radius doesn't exceed half of simulation size
+#     radius_pixels = min(radius_pixels, n_sim_pxls // 2)
+    
+#     # Set the pixels within the aperture
+#     # aperture[n_sim_pxls // 2 - radius_pixels:n_sim_pxls // 2 + radius_pixels + 1,
+#     #          n_sim_pxls // 2 - radius_pixels:n_sim_pxls // 2 + radius_pixels + 1] = True
+    
+#     # Apply the aperture to the intensity
+#     rx_intensity = intensity * aperture
+    
+#     # Calculate the area of each pixel
+#     pixel_area = (rx_diameter / n_sim_pxls) ** 2
+
+#     print("Pixel Area = ", pixel_area)
+#     # Calculate the power
+#     rx_power = np.sum(rx_intensity) * pixel_area
+    
+#     return rx_intensity, rx_power
 
 def calc_scintillation_idx(self):
 
@@ -88,7 +135,7 @@ def calc_scintillation_idx(self):
     mean        = np.mean(I_aperture,   where = self.aperture)
 
     return variance/mean**2
-    
+
 def calc_plane_sci_idx(self):
 
     variance    = np.var(self.Intensity)
@@ -115,7 +162,6 @@ def plot_intensity(intensity, sim_size, rx_alt, txt):
     ax[1].set_xlabel(r'$x_n/2$' + ' (m)')
     ax[1].set_ylabel(r'$W/m^2$' + ' (m)')
     
-
     plt.show()
 
 def worker(progress_bar):
