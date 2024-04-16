@@ -24,8 +24,8 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 | min_turb_alt    | Minimum height of turbuelnt layers  | meters            |        -     |
 | r0              | Frieds parameter  | meters | Array, should be of size n_phase_screens | Typical values are 0.01 - 0.2 cm
 | screen_alt      | Height of each turbulent layer  |  meters           | Array, should be of size n_phase_screens |
-| l0              | Inner scale  |  meters          | Array, should be of size n_phase_screens. Typical value is 0.01 for all turbulent layers|
-| L0              | Outter scale  | meters       | Array, should be of size n_phase_screens. Typical value is 50 for all turbulent layers            |
+| l0              | Inner turbulence scale  |  meters          | Array, should be of size n_phase_screens. Typical value is 0.01 for all turbulent layers|
+| L0              | Outter turbulence scale  | meters       | Array, should be of size n_phase_screens. Typical value is 50 for all turbulent layers            |
 
 **EXAMPLE APPLICATION**
 
