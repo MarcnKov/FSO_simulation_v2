@@ -105,7 +105,7 @@ Total Losses =  44.8059570454 dB
 **3.Calculate Turbulence Losses**
 
 ```
-Turbulence losses = Losses without turbulence - Losses with turbulence = 48.26 dB  - 44.80 dB = 3.46 dB
+Turbulence losses = Losses with turbulence - Losses without turbulence = 48.26 dB  - 44.80 dB = 3.46 dB
 ```
 
 
