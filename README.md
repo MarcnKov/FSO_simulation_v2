@@ -10,6 +10,19 @@ Simple FSO propagation library. Propgates a gaussian beam through the turbulent 
 
 Parameters in the sim_config.json as needed
 
+List of parameters accepted by *sim_config.json*
+
+| Parameter       | Description   |
+| -------------   | ------------- |
+| sim_res         | Content Cell  |
+| sim_size        | Content Cell  |
+| rx_alt          | Content Cell  |
+| rx_diameter     | Content Cell  |
+| wvl             | Content Cell  |
+| w0              | Content Cell  |
+| power           | Content Cell  |
+| n_phase_screens | Content Cell  |
+
 **OUTPUT**
 
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/71328fd6-879a-43f7-8ad5-fec775ab6a4f)
