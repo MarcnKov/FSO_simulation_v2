@@ -29,8 +29,13 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 
 ## **EXAMPLE APPLICATIONS**
 ### **Estimate Turbulence Losses**
- 
 
+```ruby
+require 'redcarpet'
+markdown = Redcarpet.new("Hello World!")
+puts markdown.to_html
+```
+ 
 
 **OUTPUT**
 
