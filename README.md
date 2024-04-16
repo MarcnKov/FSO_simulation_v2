@@ -12,10 +12,10 @@ Parameters in the sim_config.json as needed
 
 List of parameters accepted by *sim_config.json*
 
-| Parameter       | Description   | Units       | Constraints |
+| Parameter       | Description   | Units       | Notes |
 | -------------   | ------------- |-------------|-------------|
-| sim_res         | Content Cell  |             |             |  
-| sim_size        | Content Cell  |             |             |
+| sim_res         | simulation resolution  | pixels | Too small values can introduce numerical artefacts |  
+| sim_size        | simulation size  | meters   | Should be at least 1.5*bigger than the total beam size at the receiver |
 | rx_alt          | Content Cell  |             |             |
 | rx_diameter     | Content Cell  |             |             |
 | wvl             | Content Cell  |             |             |
