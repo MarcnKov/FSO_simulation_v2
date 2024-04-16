@@ -16,19 +16,21 @@ List of parameters accepted by *sim_config.json*
 | -------------   | ------------- |-------------|-------------|
 | sim_res         | simulation resolution  | pixels | Too small values can introduce numerical artefacts |  
 | sim_size        | simulation size  | meters   | Should be at least 1.5*bigger than the total beam size at the receiver |
-| rx_alt          | Content Cell  |             |             |
-| rx_diameter     | Content Cell  |             |             |
-| wvl             | Content Cell  |             |             |
-| w0              | Content Cell  |             |             |
-| power           | Content Cell  |             |             |
-| n_phase_screens | Content Cell  |             |             |
-| max_turb_alt    | Content Cell  |             |             |
-| min_turb_alt    | Content Cell  |             |             |
-| r0              | Content Cell  |             |             |
-| screen_alt      | Content Cell  |             |             |
-| l0              | Content Cell  |             |             |
-| L0              | Content Cell  |             |             |
+| rx_alt          | receiver altitude  | meters |      -       |
+| rx_diameter     | receiver aperture diamter | meters        |       -      |
+| wvl             | wavelength  | meters      |             |
+| w0              | beam waist  | meters      |             |
+| power           | beam power  | Watts            |             |
+| n_phase_screens | Number of turbulent phase screens  | scalar            |             |
+| max_turb_alt    | Maximum height of turbuelnt layers  | meters            |             |
+| min_turb_alt    | Minimum height of turbuelnt layers  | meters            |             |
+| r0              | Frieds parameter  | meters | Array, should be of size n_phase_screens |
+| screen_alt      | Content Cell  |  meters           | Array, should be of size n_phase_screens |
+| l0              | Content Cell  |   meters          | Array, should be of size n_phase_screens            |
+| L0              | Content Cell  |      meters       | Array, should be of size n_phase_screens            |
 
+
+**ESTIMATE TURBULENCE LOSSES**
 
 
 
