@@ -29,10 +29,10 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 
 ## **EXAMPLE APPLICATIONS**
 ### **Estimate Turbulence Losses**
-
+** 1.Simulate Turbulent propagation **
 ```json
 {
-    "sim_res": 7000,
+    "sim_res": 5000,
     "sim_size": 40,
     "rx_alt": 500000,
     "rx_diameter": 0.09,
@@ -43,12 +43,12 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
     "max_turb_alt": 20000,
     "min_turb_alt": 100,
     "r0": [
-        0.14321588178668532,
-        0.1702067441091478
+        0.13,
+        0.16
     ],
     "screen_alt": [
-        100.0,
-        20000.0
+        1000.0,
+        10000.0
     ],
     "l0": [
         0.01,
@@ -60,7 +60,8 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
     ]
 }
 ```
- 
+ ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bec6c7c1-562e-4602-a97a-64e4d3e57641)
+
 
 **OUTPUT**
 
