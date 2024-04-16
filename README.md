@@ -1,5 +1,5 @@
 # FSO_simulation_v2
-Simple FSO propagation library. Propagates a gaussian beam through the turbulent atmoshpere. Can be used to estimate link budget losses due to the atmospheric turbulence for laser propagation. 
+Simple FSO propagation library. Propagates a gaussian beam through the turbulent atmoshpere. Can be used to estimate link budget losses due to the atmospheric turbulence for a gaussian beam. 
 
 **USAGE**
 
