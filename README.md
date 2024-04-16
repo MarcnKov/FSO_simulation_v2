@@ -108,6 +108,7 @@ Total Losses =  44.8059570454 dB
 Turbulence losses = Losses with turbulence - Losses without turbulence = 48.26 dB  - 44.80 dB = 3.46 dB
 ```
 
+### **Other Example Simulations**
 
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/71328fd6-879a-43f7-8ad5-fec775ab6a4f)
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bf415d49-0fd7-4813-9054-15187ec97dfb)
