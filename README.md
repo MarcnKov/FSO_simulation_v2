@@ -12,16 +12,25 @@ Parameters in the sim_config.json as needed
 
 List of parameters accepted by *sim_config.json*
 
-| Parameter       | Description   |
-| -------------   | ------------- |
-| sim_res         | Content Cell  |
-| sim_size        | Content Cell  |
-| rx_alt          | Content Cell  |
-| rx_diameter     | Content Cell  |
-| wvl             | Content Cell  |
-| w0              | Content Cell  |
-| power           | Content Cell  |
-| n_phase_screens | Content Cell  |
+| Parameter       | Description   | Units       | Constraints |
+| -------------   | ------------- |-------------|-------------|
+| sim_res         | Content Cell  |             |             |  
+| sim_size        | Content Cell  |             |             |
+| rx_alt          | Content Cell  |             |             |
+| rx_diameter     | Content Cell  |             |             |
+| wvl             | Content Cell  |             |             |
+| w0              | Content Cell  |             |             |
+| power           | Content Cell  |             |             |
+| n_phase_screens | Content Cell  |             |             |
+| max_turb_alt    | Content Cell  |             |             |
+| min_turb_alt    | Content Cell  |             |             |
+| r0              | Content Cell  |             |             |
+| screen_alt      | Content Cell  |             |             |
+| l0              | Content Cell  |             |             |
+| L0              | Content Cell  |             |             |
+
+
+
 
 **OUTPUT**
 
