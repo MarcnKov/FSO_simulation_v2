@@ -18,9 +18,9 @@ List of parameters accepted by *sim_config.json*
 | sim_size        | Simulation size  | meters   | Should be at least 1.5xbigger than the total beam size at the receiver |
 | rx_alt          | Receiver altitude  | meters |      -       |-
 | rx_diameter     | Receiver aperture diamter | meters        |       -      |
-| wvl             | Wavelength  | meters      |             | -
-| w0              | Beam waist  | meters      |             | -
-| power           | Beam power  | Watts       |             | -
+| wvl             | Wavelength  | meters      |       -      | 
+| w0              | Beam waist  | meters      |       -      |
+| power           | Beam power  | Watts       |       -      | 
 | n_phase_screens | Number of turbulent phase screens  | -            | Typical number of phase screens used in AO simulation is 2-3 |
 | max_turb_alt    | Maximum height of turbuelnt layers  | meters            | Turbulence is relevant up to 20km of the atmosphere            |
 | min_turb_alt    | Minimum height of turbuelnt layers  | meters            |        -     |
