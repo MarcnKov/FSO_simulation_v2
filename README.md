@@ -8,9 +8,7 @@ Simple FSO propagation library. Propagates a gaussian beam through the turbulent
 
 **MODIFY**
 
-Parameters in the sim_config.json as needed
-
-List of parameters accepted by *sim_config.json*
+Parameters in the sim_config.json as needed. List of parameters accepted by *sim_config.json*.
 
 | Parameter       | Description   | Units       | Notes |
 | -------------   | ------------- |-------------|-------------|
