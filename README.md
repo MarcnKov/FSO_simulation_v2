@@ -71,10 +71,43 @@ RX power =  -28.2619469559 dBm
 Total Losses =  48.2619469559 dB
 ```
 
-
 **2.Simulate Propagation without Turbulence**
 
+```json
+{
+    "sim_res": 5000,
+    "sim_size": 40,
+    "rx_alt": 500000,
+    "rx_diameter": 0.09,
+    "wvl": 1.55e-06,
+    "w0": 0.021,
+    "power": 0.1,
+    "n_phase_screens": 0,
+    "max_turb_alt": 20000,
+    "min_turb_alt": 100,
+    "r0": [],
+    "screen_alt": [],
+    "l0": [],
+    "L0": []
+}
+```
+![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/656ba242-76c5-4f4c-a297-9c0276180f7f)
+
 **OUTPUT**
+
+```
+Total power = 0.0998677520 W
+RX power =  0.0000033068 W
+RX power =  -24.8059570454 dBm
+Total Losses =  44.8059570454 dB
+```
+
+**3.Calculate Turbulence Losses**
+
+```
+Turbulence losses = 48.26 dB  - 44.80 dB = 3.46 dB
+```
+
 
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/71328fd6-879a-43f7-8ad5-fec775ab6a4f)
 ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bf415d49-0fd7-4813-9054-15187ec97dfb)
