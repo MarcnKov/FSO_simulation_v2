@@ -25,9 +25,9 @@ List of parameters accepted by *sim_config.json*
 | max_turb_alt    | Maximum height of turbuelnt layers  | meters            |             |
 | min_turb_alt    | Minimum height of turbuelnt layers  | meters            |             |
 | r0              | Frieds parameter  | meters | Array, should be of size n_phase_screens |
-| screen_alt      | Content Cell  |  meters           | Array, should be of size n_phase_screens |
-| l0              | Content Cell  |   meters          | Array, should be of size n_phase_screens            |
-| L0              | Content Cell  |      meters       | Array, should be of size n_phase_screens            |
+| screen_alt      | Height of each turbulent layer  |  meters           | Array, should be of size n_phase_screens |
+| l0              | Inner scale  |  meters          | Array, should be of size n_phase_screens            |
+| L0              | Outter scale  | meters       | Array, should be of size n_phase_screens            |
 
 
 **ESTIMATE TURBULENCE LOSSES**
