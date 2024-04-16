@@ -60,15 +60,14 @@ else:
     logger.info(f"n_phase_screens size and screen_alt array sizes don't match. Generating uniformely spaced array of screen_alt.")
 
 l0              = params['l0'] if len(params['l0']) != 0 else 1e-2
-l0              = np.full((n_phase_screens,), l0[0])  
+l0              = np.full((n_phase_screens,), np.array(l0)[0])  
 L0              = params['L0'] if len(params['L0']) != 0 else 50
-L0              = np.full((n_phase_screens,),L0[0])
+L0              = np.full((n_phase_screens,),np.array(L0)[0])
 
 params["r0"]    = np.array(r0).tolist()
 params["l0"]    = l0.tolist()
 params["L0"]    = L0.tolist()
-
-# params["screen_alt"] = screen_alt.tolist()
+params["screen_alt"] = np.array(screen_alt).tolist()
 
 #######################SIMULATION CONFIGURATION###############
 
