@@ -30,10 +30,35 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 ## **EXAMPLE APPLICATIONS**
 ### **Estimate Turbulence Losses**
 
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
+```json
+{
+    "sim_res": 7000,
+    "sim_size": 40,
+    "rx_alt": 500000,
+    "rx_diameter": 0.09,
+    "wvl": 1.55e-06,
+    "w0": 0.021,
+    "power": 0.1,
+    "n_phase_screens": 2,
+    "max_turb_alt": 20000,
+    "min_turb_alt": 100,
+    "r0": [
+        0.14321588178668532,
+        0.1702067441091478
+    ],
+    "screen_alt": [
+        100.0,
+        20000.0
+    ],
+    "l0": [
+        0.01,
+        0.01
+    ],
+    "L0": [
+        50,
+        50
+    ]
+}
 ```
  
 
