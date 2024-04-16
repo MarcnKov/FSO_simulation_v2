@@ -28,8 +28,9 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 | L0              | Outter turbulence scale  | meters       | Array, should be of size n_phase_screens. Typical value is 50 for all turbulent layers            |
 
 ## **EXAMPLE APPLICATIONS**
-### **Estimate Turbulence Losses**
-** 1.Simulate Turbulent propagation **
+### **How to Estimate Turbulence Losses?**
+
+**1.Simulate Propagation with Turbulence**
 ```json
 {
     "sim_res": 5000,
@@ -62,6 +63,16 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 ```
  ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bec6c7c1-562e-4602-a97a-64e4d3e57641)
 
+**Output**
+```
+Total power = 0.1000000000 W
+RX power =  0.0000014921 W
+RX power =  -28.2619469559 dBm
+Total Losses =  48.2619469559 dB
+```
+
+
+**2.Simulate Propagation without Turbulence**
 
 **OUTPUT**
 
