@@ -8,6 +8,67 @@ from math import ceil
 import matplotlib.pyplot as plt
 import numpy as np
 
+from src.opticalpropagation import angularSpectrum
+from src.phasescreen import ft_phase_screen
+
+# Define constants
+EARTH_RADIUS    = 6371e3
+SAT_HEIGHT      = 500e3
+
+
+def worker(progress_bar):
+    with progress_bar._lock:
+        progress_bar.update()
+
+def generate_phase_screens(sim):
+    
+    sim.logger.info("Generate Atmopsheric Phase Screens")
+
+    progress_bar    = sim.tqdm.tqdm(total=sim.n_phase_screens-1)
+    worker_thread   = sim.threading.Thread(target= worker,args=(progress_bar,))
+    worker_thread.start()
+
+    for i in range(0, sim.n_phase_screens):
+        
+        sim.phase_screens[:,:,i] = ft_phase_screen( sim.r0[i], 
+                                                    sim.sim_res,
+                                                    sim.pxl_scale,
+                                                    sim.L0[i],
+                                                    sim.l0[i])
+        progress_bar.update()
+    
+    worker_thread.join()
+    progress_bar.close()
+
+def propagate_beam(sim, n_phase_screens):
+
+    sim.logger.info("Propagate beam up to the first phase screen")
+
+    dz = sim.rx_alt if n_phase_screens == 0 else sim.screen_alt[0]
+    
+    sim.el_field = gaussian_beam_ext(sim.r_sq,dz,sim.w0,sim.wvl)
+ 
+    sim.logger.info("Propagate beam through phase screens")
+ 
+    progress_bar    = sim.tqdm.tqdm(total=n_phase_screens-1)
+    worker_thread   = sim.threading.Thread(target=worker,args=(progress_bar,))
+    worker_thread.start()
+
+    for i in range(1, n_phase_screens+1):
+    
+        dz = abs(sim.screen_alt[i] - sim.screen_alt[i-1])    
+     
+        sim.el_field    *= np.exp(1j*sim.phase_screens[:,:,i-1])
+        sim.el_field[:]  = angularSpectrum( sim.el_field,
+                                            sim.wvl,
+                                            sim.pxl_scale,
+                                            sim.pxl_scale,
+                                            dz)
+        
+        progress_bar.update()
+
+    worker_thread.join()
+    progress_bar.close()
 
 def gaussian_beam_ext(r_sq, z, w0, wvl, flag = False):   
     
@@ -164,6 +225,23 @@ def plot_intensity(intensity, sim_size, rx_alt, txt):
     
     plt.show()
 
-def worker(progress_bar):
-    with progress_bar._lock:
-        progress_bar.update()
+
+def slantRange(elevation):
+  """
+    Calculate slant range from satellite to ground station.
+
+    Parameters:
+    elevation (float): Elevation angle of the satellite in degrees.
+
+    Returns:
+    float: Slant range from satellite to ground station in meters.
+    """
+  ANG_EARTH_RAD   = EARTH_RADIUS/(EARTH_RADIUS + SAT_HEIGHT)
+
+  nadir_angle = np.arcsin(ANG_EARTH_RAD*np.cos(np.radians(elevation)))
+  
+  #earth centre angle  
+  epsilon = np.radians(90 - np.degrees(nadir_angle) - elevation)
+  slant_range = EARTH_RADIUS*np.sin(epsilon)/np.sin(nadir_angle)
+
+  return slant_range
