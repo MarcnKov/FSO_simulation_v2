@@ -33,7 +33,8 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 **1.Simulate Propagation with Turbulence**
 ```json
 {
-    "sim_res": 5000,
+    "n_iterations":1,
+    "sim_res": 4000,
     "sim_size": 40,
     "rx_alt": 500000,
     "rx_diameter": 0.09,
@@ -47,7 +48,7 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
     ],
     "screen_alt": [
         1000.0,
-        10000.0
+        10000
     ],
     "l0": [
         0.01,
