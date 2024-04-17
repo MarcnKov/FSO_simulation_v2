@@ -1,23 +1,26 @@
 {
-    "sim_res": 1000,
-    "sim_size": 0.5,
-    "rx_alt": 1000.0,
-    "rx_diameter": 0.1,
+    "sim_res": 5000,
+    "sim_size": 40,
+    "rx_alt": 500000,
+    "rx_diameter": 0.09,
     "wvl": 1.55e-06,
-    "w0": 0.017,
-    "power": 0.05,
-    "n_phase_screens": 1,
+    "w0": 0.021,
+    "power": 0.1,
+    "n_phase_screens": 2,
     "r0": [
-        0.03
+        0.15,
+        0.15
+    ],
+    "screen_alt": [
+        1000.0,
+        10000
     ],
     "l0": [
+        0.01,
         0.01
     ],
     "L0": [
+        50,
         50
-    ],
-    "screen_alt": [
-        100.0,
-        1000.0
     ]
 }
