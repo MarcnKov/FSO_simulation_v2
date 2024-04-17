@@ -42,37 +42,20 @@ rx_diameter     = params['rx_diameter']
 wvl             = params['wvl']         
 w0              = params['w0']
 power           = params['power']
-max_turb_alt    = params['max_turb_alt']
-min_turb_alt    = params['min_turb_alt']
+screen_alt      = params['screen_alt']
+r0              = params['r0']
+l0              = params['l0']
+L0              = params['L0']
 
-if len(params['r0']) != 0 and len(params['r0']) == n_phase_screens:
-    r0 = params['r0']
-else:
-    r0 = np.random.rand(n_phase_screens)*0.2
-    logger.info(f"n_phase_screens size and r0 array sizes don't match. Generating random array of r0 values.")
+if  len(screen_alt) != n_phase_screens or \
+    len(r0)         != n_phase_screens or \
+    len(l0)         != n_phase_screens or \
+    len(L0)         != n_phase_screens:
 
-if len(params['screen_alt']) != 0 and len(params['screen_alt']) == n_phase_screens:
-    screen_alt = params['screen_alt']
-else:
-    screen_alt = np.linspace(min_turb_alt,
-                             min(max_turb_alt,rx_alt-min_turb_alt),
-                             n_phase_screens)
-    logger.info(f"n_phase_screens size and screen_alt array sizes don't match. Generating uniformely spaced array of screen_alt.")
-
-l0              = params['l0'] if len(params['l0']) != 0 else 1e-2
-l0              = np.full((n_phase_screens,), np.array(l0)[0])  
-L0              = params['L0'] if len(params['L0']) != 0 else 50
-L0              = np.full((n_phase_screens,),np.array(L0)[0])
-
-params["r0"]    = np.array(r0).tolist()
-params["l0"]    = l0.tolist()
-params["L0"]    = L0.tolist()
-params["screen_alt"] = np.array(screen_alt).tolist()
+    logger.error("Sizes of arrays don't match n_phase_screens size. Halting execution.")
+    raise ValueError("Sizes of arrays don't match n_phase_screens size.")
 
 #######################SIMULATION CONFIGURATION###############
-
-with open('sim_config.json', 'w') as config_file:
-    json.dump(params, config_file, indent=4)
 
 for key, value in params.items():
     logger.info(f"{key}: {value}")
@@ -120,7 +103,6 @@ el_field = help_func.gaussian_beam_ext(r_sq,
                                          dz,
                                          w0,
                                          wvl)
-
 
 logger.info("Propagate beam through phase screens")
 
