@@ -39,8 +39,6 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
     "w0": 0.021,
     "power": 0.1,
     "n_phase_screens": 2,
-    "max_turb_alt": 20000,
-    "min_turb_alt": 100,
     "r0": [
         0.13,
         0.16
@@ -81,8 +79,6 @@ Total Losses =  48.2619469559 dB
     "w0": 0.021,
     "power": 0.1,
     "n_phase_screens": 0,
-    "max_turb_alt": 20000,
-    "min_turb_alt": 100,
     "r0": [],
     "screen_alt": [],
     "l0": [],
