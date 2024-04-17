@@ -1,5 +1,6 @@
 {
-    "sim_res": 5000,
+    "n_iterations":10,
+    "sim_res": 4000,
     "sim_size": 40,
     "rx_alt": 500000,
     "rx_diameter": 0.09,
@@ -8,8 +9,8 @@
     "power": 0.1,
     "n_phase_screens": 2,
     "r0": [
-        0.15,
-        0.15
+        0.13,
+        0.16
     ],
     "screen_alt": [
         1000.0,
