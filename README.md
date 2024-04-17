@@ -1,4 +1,4 @@
-# Free Space Optics Turbulence Simulation
+# Free Space Optical Propagation Turbulence Simulation
 Simple FSO propagation library. Propagates a gaussian beam through the turbulent atmoshpere. Can be used to estimate link budget losses due to the atmospheric turbulence for a gaussian beam. 
 
 **Usage**
