@@ -81,7 +81,7 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 **2.Calculate Turbulence Losses**
 
 ```
-Turbulence losses = Losses with turbulence - Losses without turbulence = 48.26 dB  - 44.80 dB = 3.46 dB
+Turbulence losses = Losses with turbulence - Losses without turbulence = 45.59 dB  -  44.32 dB = 1.27 dB
 ```
 
 ### **Other Example Simulations**
