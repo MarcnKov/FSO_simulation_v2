@@ -7,8 +7,6 @@
     "w0": 0.017,
     "power": 0.05,
     "n_phase_screens": 1,
-    "max_turb_alt": 20000,
-    "min_turb_alt": 100,
     "r0": [
         0.03
     ],
