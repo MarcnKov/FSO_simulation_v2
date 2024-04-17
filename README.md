@@ -4,7 +4,8 @@ Simple FSO propagation library. Propagates a gaussian beam through the turbulent
 **Usage**
 
 1. Git clone or download the library
-2. python -m pip install -r requirements.txt 
+2. python -m pip install -r requirements.txt
+3. python .\FSO_simulation_v2.py
 
 **Modify**
 
