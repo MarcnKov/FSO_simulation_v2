@@ -30,7 +30,7 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 ## Example Applications
 ### How to Estimate Losses caussed by Turbulence ?
 
-**1.Simulate Propagation with Turbulence**
+**1.Simulate Turbulent Propagation**
 ```json
 {
     "n_iterations":10,
@@ -72,13 +72,13 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 **Output**
 
 ```
-Total power = 0.0998677520 W
-RX power =  0.0000033068 W
-RX power =  -24.8059570454 dBm
-Total Losses =  44.8059570454 dB
+2024-04-18 00:58:17,343 INFO: Propagate beam without turbulence
+2024-04-18 00:58:21,831 INFO: Total Losses no turbulence =  44.3290465655 dB
+2024-04-18 00:58:21,832 INFO: Perform a simulation for 10 turbulent iterations
+2024-04-18 01:01:27,793 INFO: Average Losses = 45.5994663001 dB
 ```
 
-**3.Calculate Turbulence Losses**
+**2.Calculate Turbulence Losses**
 
 ```
 Turbulence losses = Losses with turbulence - Losses without turbulence = 48.26 dB  - 44.80 dB = 3.46 dB
