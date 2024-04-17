@@ -13,6 +13,7 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 
 | Parameter       | Description   | Units       | Notes |
 | -------------   | ------------- |-------------|-------------|
+| n_iterations    | Number of iterations  | - | Turbulent phase are generated randomly, increasing n_iterations gives a better approximation of turbulent phenomena | 
 | sim_res         | Simulation resolution  | pixels | Too small values will introduce numerical artefacts |  
 | sim_size        | Simulation size  | meters   | Too small values will introduce numerical artefacts |
 | rx_alt          | Receiver altitude  | meters |      -       |-
