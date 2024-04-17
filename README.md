@@ -13,7 +13,7 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
 | Parameter       | Description   | Units       | Notes |
 | -------------   | ------------- |-------------|-------------|
 | sim_res         | Simulation resolution  | pixels | Too small values will introduce numerical artefacts |  
-| sim_size        | Simulation size  | meters   | Should be at least 1.5xbigger than the total beam size at the receiver |
+| sim_size        | Simulation size  | meters   | Too small values will introduce numerical artefacts |
 | rx_alt          | Receiver altitude  | meters |      -       |-
 | rx_diameter     | Receiver aperture diamter | meters        |       -      |
 | wvl             | Wavelength  | meters      |       -      | 
