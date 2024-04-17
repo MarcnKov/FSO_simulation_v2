@@ -60,35 +60,14 @@ Parameters in the sim_config.json as needed. List of parameters accepted by *sim
     ]
 }
 ```
- ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bec6c7c1-562e-4602-a97a-64e4d3e57641)
 
-**Output**
-```
-Total power = 0.1000000000 W
-RX power =  0.0000014921 W
-RX power =  -28.2619469559 dBm
-Total Losses =  48.2619469559 dB
-```
+| ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/656ba242-76c5-4f4c-a297-9c0276180f7f)| 
+|:--:| 
+| *FSO propagation without turbulence* |
 
-**2.Simulate Propagation without Turbulence**
-
-```json
-{
-    "sim_res": 5000,
-    "sim_size": 40,
-    "rx_alt": 500000,
-    "rx_diameter": 0.09,
-    "wvl": 1.55e-06,
-    "w0": 0.021,
-    "power": 0.1,
-    "n_phase_screens": 0,
-    "r0": [],
-    "screen_alt": [],
-    "l0": [],
-    "L0": []
-}
-```
-![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/656ba242-76c5-4f4c-a297-9c0276180f7f)
+| ![image](https://github.com/MarcnKov/FSO_simulation_v2/assets/46137836/bec6c7c1-562e-4602-a97a-64e4d3e57641)| 
+|:--:| 
+| *FSO turbulent propagation* |
 
 **Output**
 
