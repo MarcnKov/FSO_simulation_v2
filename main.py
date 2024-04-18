@@ -1,5 +1,9 @@
 from src import helper_functions as help_func
 from src import sim_setup as sim
+<<<<<<< HEAD
+=======
+
+>>>>>>> c6dad6f059f358cd19b743e74266c8293b29facd
 import numpy as np
 
 if __name__ == "__main__":
