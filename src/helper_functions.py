@@ -20,7 +20,7 @@ def worker(progress_bar):
 
 def generate_phase_screens(sim):
     
-    sim.logger.info("Generate Atmopsheric Phase Screens")
+    sim.logger.info("\nGenerate Atmopsheric Phase Screens")
 
     for i in range(0, sim.n_phase_screens):
         
