@@ -1,6 +1,6 @@
 from src import helper_functions as help_func
+from src import sim_setup as sim
 
-import sim_setup as sim
 import numpy as np
 
 if __name__ == "__main__":
