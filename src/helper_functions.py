@@ -13,8 +13,6 @@ from src.phasescreen import ft_phase_screen
 
 # Define constants
 EARTH_RADIUS    = 6371e3
-SAT_HEIGHT      = 500e3
-
 
 def worker(progress_bar):
     with progress_bar._lock:
@@ -24,10 +22,6 @@ def generate_phase_screens(sim):
     
     sim.logger.info("Generate Atmopsheric Phase Screens")
 
-    progress_bar    = sim.tqdm.tqdm(total=sim.n_phase_screens-1)
-    worker_thread   = sim.threading.Thread(target= worker,args=(progress_bar,))
-    worker_thread.start()
-
     for i in range(0, sim.n_phase_screens):
         
         sim.phase_screens[:,:,i] = ft_phase_screen( sim.r0[i], 
@@ -35,10 +29,6 @@ def generate_phase_screens(sim):
                                                     sim.pxl_scale,
                                                     sim.L0[i],
                                                     sim.l0[i])
-        progress_bar.update()
-    
-    worker_thread.join()
-    progress_bar.close()
 
 def propagate_beam(sim, n_phase_screens):
 
@@ -49,10 +39,6 @@ def propagate_beam(sim, n_phase_screens):
     sim.el_field = gaussian_beam_ext(sim.r_sq,dz,sim.w0,sim.wvl)
  
     sim.logger.info("Propagate beam through phase screens")
- 
-    progress_bar    = sim.tqdm.tqdm(total=n_phase_screens-1)
-    worker_thread   = sim.threading.Thread(target=worker,args=(progress_bar,))
-    worker_thread.start()
 
     for i in range(1, n_phase_screens+1):
     
@@ -64,11 +50,6 @@ def propagate_beam(sim, n_phase_screens):
                                             sim.pxl_scale,
                                             sim.pxl_scale,
                                             dz)
-        
-        progress_bar.update()
-
-    worker_thread.join()
-    progress_bar.close()
 
 def gaussian_beam_ext(r_sq, z, w0, wvl, flag = False):   
     
@@ -137,53 +118,6 @@ def calc_RX_params(intensity, n_sim_pxls, rx_diameter, dx):
     
     return rx_intensity, rx_power 
 
-def calc_propagation_loss(P0, z, wvl, w0):
-
-    n   = 1
-    z_r = np.pi*w0**2*n/wvl
-    propagation_loses = np.exp(-2 * (z / z_r)**2)
-    return propagation_loses
-
-    # return P0*(1-propagation_loses)
-
-# def calc_RX_params(intensity, n_sim_pxls, rx_diameter, dx):
-    
-#     """
-#     Calculates RX Intensity at the aperture 
-
-#     Returns:
-#         np.ndarray : RX Intensity at aperture
-#         float : RX power at aperture
-#     """
-
-#     # Number of pixels in receiver aperture
-#     n_rx_pxls = rx_diameter / dx
-
-#     # Create an 2D array of type boolean
-#     aperture = np.zeros((n_sim_pxls, n_sim_pxls), dtype=bool)
-    
-#     # Calculate the radius in terms of number of pixels
-#     radius_pixels = ceil(n_rx_pxls / 2)
-    
-#     # Ensure radius doesn't exceed half of simulation size
-#     radius_pixels = min(radius_pixels, n_sim_pxls // 2)
-    
-#     # Set the pixels within the aperture
-#     # aperture[n_sim_pxls // 2 - radius_pixels:n_sim_pxls // 2 + radius_pixels + 1,
-#     #          n_sim_pxls // 2 - radius_pixels:n_sim_pxls // 2 + radius_pixels + 1] = True
-    
-#     # Apply the aperture to the intensity
-#     rx_intensity = intensity * aperture
-    
-#     # Calculate the area of each pixel
-#     pixel_area = (rx_diameter / n_sim_pxls) ** 2
-
-#     print("Pixel Area = ", pixel_area)
-#     # Calculate the power
-#     rx_power = np.sum(rx_intensity) * pixel_area
-    
-#     return rx_intensity, rx_power
-
 def calc_scintillation_idx(self):
 
     """
@@ -194,13 +128,6 @@ def calc_scintillation_idx(self):
     I_aperture  = self.calc_RX_intensity()    
     variance    = np.var(I_aperture,    where = self.aperture)
     mean        = np.mean(I_aperture,   where = self.aperture)
-
-    return variance/mean**2
-
-def calc_plane_sci_idx(self):
-
-    variance    = np.var(self.Intensity)
-    mean        = np.mean(self.Intensity)
 
     return variance/mean**2
 
@@ -226,7 +153,7 @@ def plot_intensity(intensity, sim_size, rx_alt, txt):
     plt.show()
 
 
-def slantRange(elevation):
+def slantRange(sim, elevation):
   """
     Calculate slant range from satellite to ground station.
 
@@ -236,7 +163,7 @@ def slantRange(elevation):
     Returns:
     float: Slant range from satellite to ground station in meters.
     """
-  ANG_EARTH_RAD   = EARTH_RADIUS/(EARTH_RADIUS + SAT_HEIGHT)
+  ANG_EARTH_RAD   = EARTH_RADIUS/(EARTH_RADIUS + sim.rx_alt)
 
   nadir_angle = np.arcsin(ANG_EARTH_RAD*np.cos(np.radians(elevation)))
   
