@@ -30,19 +30,20 @@ def generate_phase_screens(sim):
                                                     sim.L0[i],
                                                     sim.l0[i])
 
-def propagate_beam(sim, n_phase_screens):
+def propagate_beam(sim, n_phase_screens, rx_alt, screen_alt):
 
     sim.logger.info("Propagate beam up to the first phase screen")
 
-    dz = sim.rx_alt if n_phase_screens == 0 else sim.screen_alt[0]
+    dz = rx_alt if n_phase_screens == 0 else screen_alt[0]
     
     sim.el_field = gaussian_beam_ext(sim.r_sq,dz,sim.w0,sim.wvl)
- 
-    sim.logger.info("Propagate beam through phase screens")
+    
+    if (n_phase_screens != 0):
+        sim.logger.info("Propagate beam through phase screens")
 
     for i in range(1, n_phase_screens+1):
     
-        dz = abs(sim.screen_alt[i] - sim.screen_alt[i-1])    
+        dz = abs(screen_alt[i] - screen_alt[i-1])    
      
         sim.el_field    *= np.exp(1j*sim.phase_screens[:,:,i-1])
         sim.el_field[:]  = angularSpectrum( sim.el_field,
@@ -131,7 +132,7 @@ def calc_scintillation_idx(self):
 
     return variance/mean**2
 
-def plot_intensity(intensity, sim_size, rx_alt, txt):
+def plot_intensity(intensity, sim_size, rx_alt, txt, elevation):
        
     #determine extent
     extent = -sim_size/2, sim_size/2, -sim_size/2, sim_size/2
@@ -149,8 +150,12 @@ def plot_intensity(intensity, sim_size, rx_alt, txt):
     ax[1].set_title('Intensity cross-section')
     ax[1].set_xlabel(r'$x_n/2$' + ' (m)')
     ax[1].set_ylabel(r'$W/m^2$' + ' (m)')
-    
-    plt.show()
+
+    plt.tight_layout()
+
+    fig.savefig(str(round(elevation, 0)) + ".png", format="png")
+
+    # plt.show()
 
 
 def slantRange(sim, elevation):
@@ -163,6 +168,7 @@ def slantRange(sim, elevation):
     Returns:
     float: Slant range from satellite to ground station in meters.
     """
+  
   ANG_EARTH_RAD   = EARTH_RADIUS/(EARTH_RADIUS + sim.rx_alt)
 
   nadir_angle = np.arcsin(ANG_EARTH_RAD*np.cos(np.radians(elevation)))
@@ -172,3 +178,12 @@ def slantRange(sim, elevation):
   slant_range = EARTH_RADIUS*np.sin(epsilon)/np.sin(nadir_angle)
 
   return slant_range
+
+
+def interpol_linear_fit(x, x1, x2, y1, y2):
+    
+    m = (y2 - y1)/(x2 - x1)
+    y = m*(x-x1) + y1
+    return y
+
+
